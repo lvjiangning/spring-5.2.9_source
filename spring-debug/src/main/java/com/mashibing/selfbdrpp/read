@@ -1,0 +1,5 @@
+# BeanFactoryPostProcessor
+ BeanFactory后置处理器，在BeanDefinition封装后进行调用
+ 
+ ## 流程图
+https://www.processon.com/diagraming/623adfe4e401fd070bbd4f70 添加与执行BeanFactoryPostProcessor的流程图
