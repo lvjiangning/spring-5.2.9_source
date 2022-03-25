@@ -1,11 +1,11 @@
-package com.mashibing.config;
+package com.mashibing.componentScan.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource({"classpath:myconfig2.properties"})
+@PropertySource({"classpath:componentScan/myconfig2.properties"})
 public class MyPropertySource {
 
     @Value("${myconfig2.name}")

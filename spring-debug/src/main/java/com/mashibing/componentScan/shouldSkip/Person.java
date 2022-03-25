@@ -1,4 +1,4 @@
-package com.mashibing.shouldSkip;
+package com.mashibing.componentScan.shouldSkip;
 
 public class Person {
     private String name;

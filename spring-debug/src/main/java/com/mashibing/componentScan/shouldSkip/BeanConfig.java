@@ -1,4 +1,4 @@
-package com.mashibing.shouldSkip;
+package com.mashibing.componentScan.shouldSkip;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Conditional;

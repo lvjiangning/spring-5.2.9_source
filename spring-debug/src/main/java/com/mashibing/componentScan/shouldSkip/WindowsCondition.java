@@ -1,4 +1,4 @@
-package com.mashibing.shouldSkip;
+package com.mashibing.componentScan.shouldSkip;
 
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
