@@ -11,7 +11,7 @@
     <context:component-scan base-package="com.mashibing" ></context:component-scan>
     <bean id="user" class="com.mashibing.supplier.User" ></bean>
     <context:property-placeholder location="classpath:db.properties" ></context:property-placeholder>
-    <bean class="com.mashibing.selfBeanDefinitionRegistryPostProcessor.MyBeanDefinitionRegistryPostProcessor"></bean>
+    <bean class="com.mashibing.beanDefinitionRegistryPostProcessor.MyBeanDefinitionRegistryPostProcessor"></bean>
 <!--    <bean id="person2" class="com.mashibing.Person" depends-on="">-->
 <!--        <constructor-arg index="0" value="2">-->
 <!--        </constructor-arg>-->
@@ -25,7 +25,7 @@
             <property name="username" value="${jdbc.username}"></property>
     </bean>
 
-    <bean id="studentConverter" class="com.mashibing.selfConverter.StudentConverter"></bean>
+    <bean id="studentConverter" class="com.mashibing.converter.StudentConverter"></bean>
     <bean id ="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
             <set>

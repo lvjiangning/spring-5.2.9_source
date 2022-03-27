@@ -1,4 +1,4 @@
-package com.mashibing.selfBeanDefinitionRegistryPostProcessor;
+package com.mashibing.beanDefinitionRegistryPostProcessor;
 
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;

@@ -1,4 +1,4 @@
-package com.mashibing.selfConverter;
+package com.mashibing.converter;
 
 import org.springframework.core.convert.converter.Converter;
 

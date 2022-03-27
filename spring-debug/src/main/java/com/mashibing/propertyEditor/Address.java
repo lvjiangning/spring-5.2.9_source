@@ -1,4 +1,4 @@
-package com.mashibing.selfEditor;
+package com.mashibing.propertyEditor;
 
 
 public class Address {

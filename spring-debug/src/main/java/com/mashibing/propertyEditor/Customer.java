@@ -1,4 +1,4 @@
-package com.mashibing.selfEditor;
+package com.mashibing.propertyEditor;
 
 import org.springframework.context.annotation.PropertySource;
 

@@ -1,4 +1,4 @@
-package com.mashibing.selfBeanDefinitionRegistryPostProcessor;
+package com.mashibing.beanDefinitionRegistryPostProcessor;
 
 public class Teacher {
 

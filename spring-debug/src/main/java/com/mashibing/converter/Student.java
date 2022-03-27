@@ -1,4 +1,4 @@
-package com.mashibing.selfConverter;
+package com.mashibing.converter;
 
 public class Student {
 
