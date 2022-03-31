@@ -5,6 +5,8 @@
        xmlns:util="http://www.springframework.org/schema/util"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
 
+
+    <context:component-scan base-package="com.mashibing.populateBean.annotation"></context:component-scan>
     <!--给复杂类型的赋值都在property标签内进行-->
     <bean id="person" class="com.mashibing.populateBean.Person">
         <property name="name">
@@ -14,7 +16,7 @@
         <!--通过ref引用其他对象，引用外部bean-->
         <property name="address" ref="address"></property>
         <!--引用内部bean-->
-        <!-- <property name="address">
+<!--         <property name="address">
              <bean class="com.mashibing.bean.Address">
                  <property name="province" value="北京"></property>
                  <property name="city" value="北京"></property>

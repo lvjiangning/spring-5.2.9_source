@@ -1,4 +1,4 @@
-package com.mashibing.selftag;
+package com.mashibing.namespaceHandler;
 
 public class User {
 

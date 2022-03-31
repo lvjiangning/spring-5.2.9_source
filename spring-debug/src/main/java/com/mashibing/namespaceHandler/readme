@@ -1,5 +1,5 @@
 自定义一个<msb:user   username email age>,完成整个标签的处理工作
 1、创建对应的xsd文件
 2、创建UserNamespaceHandler实现NamespaceHandlerSupport
-2、创建UserBeanDefinitionParser,对标签进行解析
-2、spring.handlers，spring.schemas进行映射
+3、创建UserBeanDefinitionParser对标签进行解析,并且在UserNamespaceHandler.init()进行注册
+4、在文件spring.handlers、spring.schemas进行映射

@@ -33,12 +33,20 @@ public class ContextNamespaceHandler extends NamespaceHandlerSupport {
 	@Override
 	public void init() {
 		registerBeanDefinitionParser("property-placeholder", new PropertyPlaceholderBeanDefinitionParser());
+//		https://cloud.tencent.com/developer/article/1890784
+		//属性文件指定的信息可以直接覆盖spring xml配置文件的元数据
 		registerBeanDefinitionParser("property-override", new PropertyOverrideBeanDefinitionParser());
+//		https://www.cnblogs.com/zhangsonglin/p/11181064.html
 		registerBeanDefinitionParser("annotation-config", new AnnotationConfigBeanDefinitionParser());
 		registerBeanDefinitionParser("component-scan", new ComponentScanBeanDefinitionParser());
+//		https://blog.csdn.net/LeoHan163/article/details/106921570/
 		registerBeanDefinitionParser("load-time-weaver", new LoadTimeWeaverBeanDefinitionParser());
+//		https://blog.csdn.net/why2sky/article/details/41977735
+		//spring可以为ioc容器进行依赖注入：但某些类没有配置在ioc中，也可以进行依赖注入。
 		registerBeanDefinitionParser("spring-configured", new SpringConfiguredBeanDefinitionParser());
+		//对于一个普通的java类，作为MBean 需要被管理，通过注解指定需要暴露的属性和方法。
 		registerBeanDefinitionParser("mbean-export", new MBeanExportBeanDefinitionParser());
+		//使用jms技术，资源被一种叫做Mbeans监控，这些Mbean都在核心对象管理的server上注册
 		registerBeanDefinitionParser("mbean-server", new MBeanServerBeanDefinitionParser());
 	}
 

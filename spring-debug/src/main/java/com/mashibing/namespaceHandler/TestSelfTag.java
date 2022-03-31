@@ -1,4 +1,4 @@
-package com.mashibing.selftag;
+package com.mashibing.namespaceHandler;
 
 import com.mashibing.MyClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;

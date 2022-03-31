@@ -1,4 +1,4 @@
-package com.mashibing.selftag;
+package com.mashibing.namespaceHandler;
 
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 

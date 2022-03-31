@@ -174,7 +174,7 @@ class ConfigurationClassParser {
 			BeanDefinition bd = holder.getBeanDefinition();
 			// 根据BeanDefinition类型的不同，调用parse不同的重载方法，实际上最终都是调用processConfigurationClass()方法
 			try {
-				// 注解类型
+				// 注解类型 此类将通用bean定义GenericBeanDefinition和注解bean定义AnnotationBeanDefinition拼接起来
 				if (bd instanceof AnnotatedBeanDefinition) {
 					parse(((AnnotatedBeanDefinition) bd).getMetadata(), holder.getBeanName());
 				}
@@ -235,7 +235,7 @@ class ConfigurationClassParser {
 
 
 	protected void  processConfigurationClass(ConfigurationClass configClass, Predicate<String> filter) throws IOException {
-		// 判断是否跳过解析
+		// 通过Conditional注解，判断是否跳过解析，
 		if (this.conditionEvaluator.shouldSkip(configClass.getMetadata(), ConfigurationPhase.PARSE_CONFIGURATION)) {
 			return;
 		}

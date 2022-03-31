@@ -146,7 +146,7 @@ public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContex
 		 */
 		super(parent);
 		/**
-		 * 解析配置信息，将占位符替换为对应变量的值
+		 * 解析传递的配置文件信息，如果有占位符，则将占位符替换为对应变量的值
 		 */
 		setConfigLocations(configLocations);
 		if (refresh) {

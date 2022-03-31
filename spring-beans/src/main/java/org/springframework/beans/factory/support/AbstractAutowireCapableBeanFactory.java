@@ -669,12 +669,12 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 			// 如果是单例对象，从factorybean实例缓存中移除当前bean定义信息
 			instanceWrapper = this.factoryBeanInstanceCache.remove(beanName);
 		}
-		// 没有就创建实例
+		// 没有就创建实例,会在此处进行实例化
 		if (instanceWrapper == null) {
 			// 根据执行bean使用对应的策略创建新的实例，如，工厂方法，构造函数主动注入、简单初始化
 			instanceWrapper = createBeanInstance(beanName, mbd, args);
 		}
-		// 从包装类中获取原始bean
+		// 从包装类中获取原始bean,
 		Object bean = instanceWrapper.getWrappedInstance();
 		// 获取具体的bean对象的Class属性
 		Class<?> beanType = instanceWrapper.getWrappedClass();
@@ -688,7 +688,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		synchronized (mbd.postProcessingLock) {
 			if (!mbd.postProcessed) {
 				try {
-					// MergedBeanDefinitionPostProcessor后置处理器修改合并bean的定义
+					// MergedBeanDefinitionPostProcessor后置处理器修改合并bean的定义，其中有一个非常重要的实现类 AutowiredAnnotationBeanPostProcessor
 					applyMergedBeanDefinitionPostProcessors(mbd, beanType, beanName);
 				}
 				catch (Throwable ex) {
@@ -2134,7 +2134,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 				Object resolvedValue = valueResolver.resolveValueIfNecessary(pv, originalValue);
 				//默认转换后的值是刚解析出来的值
 				Object convertedValue = resolvedValue;
-				//可转换标记: propertyName是否bw中的可写属性 && prepertyName不是表示索引属性或嵌套属性（如果propertyName中有'.'||'['就认为是索引属性或嵌套属性）
+				//可转换标记: propertyName是否bw中的可写属性 && propertyName不是表示索引属性或嵌套属性（如果propertyName中有'.'||'['就认为是索引属性或嵌套属性）
 				boolean convertible = bw.isWritableProperty(propertyName) &&
 						!PropertyAccessorUtils.isNestedOrIndexedProperty(propertyName);
 				//如果可转换

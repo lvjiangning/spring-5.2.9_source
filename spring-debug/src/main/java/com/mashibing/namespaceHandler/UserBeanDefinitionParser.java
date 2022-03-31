@@ -1,4 +1,4 @@
-package com.mashibing.selftag;
+package com.mashibing.namespaceHandler;
 
 import org.springframework.beans.factory.support.BeanDefinitionBuilder;
 import org.springframework.beans.factory.xml.AbstractSingleBeanDefinitionParser;
