@@ -567,11 +567,11 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader
 
 			// Tell the subclass to refresh the internal bean factory.
 			// 创建容器对象：DefaultListableBeanFactory
-			// 加载xml配置文件的属性值到当前工厂中，最重要的将各类xml信息解析成BeanDefinition
+			// 加载xml配置文件的属性值到当前工厂中，最重要的将各类xml信息解析成BeanDefinition,自定义标签会通过namespaceHandler实现类进行转换，其中重要的是ContextNamespaceHandler进行扫描解析成BeanDefinition进行注册,并注册一些重要的BeanFactoryPostProcessor
 			ConfigurableListableBeanFactory beanFactory = obtainFreshBeanFactory();
 
 			// Prepare the bean factory for use in this context.
-			// beanFactory的准备工作，对各种属性进行填充
+			// beanFactory的准备工作，对beanFactory各种属性进行填充
 			prepareBeanFactory(beanFactory);
 
 			try {

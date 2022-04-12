@@ -20,6 +20,11 @@ public class TestAop {
 
     }
 
+    /**
+     * 保存生成的代理对象
+     * @param dir
+     * @throws Exception
+     */
     public static void saveGeneratedCGlibProxyFiles(String dir) throws Exception {
         Field field = System.class.getDeclaredField("props");
         field.setAccessible(true);

@@ -709,13 +709,13 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 				logger.trace("Eagerly caching bean '" + beanName +
 						"' to allow for resolving potential circular references");
 			}
-			// 为避免后期循环依赖，可以在bean初始化完成前将创建实例的ObjectFactory加入工厂
+			// 为避免后期循环依赖，可以在bean初始化完成前将创建实例的ObjectFactory加入工厂,加入三级缓存
 			addSingletonFactory(beanName, () -> getEarlyBeanReference(beanName, mbd, bean));
-
+// ========================  测试代码 start, 测试假如只有二级缓存======================
 			//只保留二级缓存，不向三级缓存中存放对象
-			earlySingletonObjects.put(beanName,bean);
-			registeredSingletons.add(beanName);
-//
+//			earlySingletonObjects.put(beanName,bean);
+//			registeredSingletons.add(beanName);
+// ========================  测试代码 end======================
 //			synchronized (this.singletonObjects) {
 //				if (!this.singletonObjects.containsKey(beanName)) {
 //					//实例化后的对象先添加到三级缓存中，三级缓存对应beanName的是一个lambda表达式(能够触发创建代理对象的机制)
@@ -723,7 +723,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 //					this.registeredSingletons.add(beanName);
 //				}
 //			}
-
+// ========================  测试代码 end======================
 		}
 
 		// Initialize the bean instance.
@@ -2105,7 +2105,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		List<PropertyValue> deepCopy = new ArrayList<>(original.size());
 		//是否还需要解析标记
 		boolean resolveNecessary = false;
-		// 遍历属性，将属性转换为对应类的对应属性的类型
+		// 遍历属性，递归处理将属性转换为对应类的对应属性的类型
 		for (PropertyValue pv : original) {
 			// 如果该属性已经解析过
 			if (pv.isConverted()) {
@@ -2130,7 +2130,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 					//将writerMethod封装到DependencyDescriptor对象
 					originalValue = new DependencyDescriptor(new MethodParameter(writeMethod, 0), true);
 				}
-				//交由valueResolver根据pv解析出originalValue所封装的对象
+				//交由valueResolver根据pv解析出originalValue所封装的对象，此方法对属性进行 递归 解析处理
 				Object resolvedValue = valueResolver.resolveValueIfNecessary(pv, originalValue);
 				//默认转换后的值是刚解析出来的值
 				Object convertedValue = resolvedValue;
@@ -2176,7 +2176,7 @@ public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFac
 		}
 		//mpvs不为null && 已经不需要解析
 		if (mpvs != null && !resolveNecessary) {
-			//将此holder标记为只包含转换后的值
+			//将此holder标记为只包含转换后的值@
 			mpvs.setConverted();
 		}
 

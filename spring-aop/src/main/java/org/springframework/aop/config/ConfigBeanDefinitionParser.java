@@ -375,7 +375,7 @@ class ConfigBeanDefinitionParser implements BeanDefinitionParser {
 						ORDER_PROPERTY, aspectElement.getAttribute(ORDER_PROPERTY));
 			}
 
-			// register the final advisor
+			// register the final advisor，注册advisor
 			parserContext.getReaderContext().registerWithGeneratedName(advisorDefinition);
 
 			return advisorDefinition;
