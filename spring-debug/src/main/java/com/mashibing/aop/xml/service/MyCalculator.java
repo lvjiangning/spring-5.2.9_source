@@ -1,7 +1,7 @@
 package com.mashibing.aop.xml.service;
 
 //@Service
-public class MyCalculator /*implements Calculator */{
+public class MyCalculator implements Calculator {
     public Integer add(Integer i, Integer j) throws NoSuchMethodException {
         System.out.println("log--- add  方法开始执行");
         Integer result = i/j;
