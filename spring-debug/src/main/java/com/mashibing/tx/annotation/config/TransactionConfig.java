@@ -49,6 +49,7 @@ public class TransactionConfig {
 
     @Bean
     public BookService bookService() {
+        //如果不调用会怎么样
         bookDao();
         return new BookService();
     }

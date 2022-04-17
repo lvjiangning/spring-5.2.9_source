@@ -33,5 +33,5 @@
             <tx:method name="updateStock" propagation="REQUIRES_NEW" />
         </tx:attributes>
     </tx:advice>
-    <bean class="com.mashibing.MyBeanFactoryPostProcessorBySelf"></bean>
+    <tx:annotation-driven></tx:annotation-driven>
 </beans>
