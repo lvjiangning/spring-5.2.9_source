@@ -700,7 +700,7 @@ class CglibAopProxy implements AopProxy, Serializable {
 				// Get as late as possible to minimize the time we "own" the target, in case it comes from a pool...
 				target = targetSource.getTarget();
 				Class<?> targetClass = (target != null ? target.getClass() : null);
-				// 从advised中获取配置好的AOP通知
+				// 从advised中获取配置好的AOP通知,并且进行方法的匹配，如果此方法在切点表达式范围内，则将advice进行转换成MethodInterceptor对象返回
 				List<Object> chain = this.advised.getInterceptorsAndDynamicInterceptionAdvice(method, targetClass);
 				Object retVal;
 				// Check whether we only have one InvokerInterceptor: that is,

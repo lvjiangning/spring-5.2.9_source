@@ -199,11 +199,9 @@ final class PostProcessorRegistrationDelegate {
         // 用于存放实现了PriorityOrdered接口的BeanFactoryPostProcessor
         List<BeanFactoryPostProcessor> priorityOrderedPostProcessors = new ArrayList<>();
         // 用于存放实现了Ordered接口的BeanFactoryPostProcessor的beanName
-//		List<String> orderedPostProcessorNames = new ArrayList<>();
-        List<BeanFactoryPostProcessor> orderedPostProcessor = new ArrayList<>();
+		List<String> orderedPostProcessorNames = new ArrayList<>();
         // 用于存放普通BeanFactoryPostProcessor的beanName
-//		List<String> nonOrderedPostProcessorNames = new ArrayList<>();
-        List<BeanFactoryPostProcessor> nonOrderedPostProcessorNames = new ArrayList<>();
+		List<String> nonOrderedPostProcessorNames = new ArrayList<>();
         // 遍历postProcessorNames,将BeanFactoryPostProcessor按实现PriorityOrdered、实现Ordered接口、普通三种区分开
         for (String ppName : postProcessorNames) {
             // 跳过已经执行过的BeanFactoryPostProcessor
@@ -216,12 +214,10 @@ final class PostProcessorRegistrationDelegate {
             }
             // 添加实现了Ordered接口的BeanFactoryPostProcessor的beanName到orderedPostProcessorNames
             else if (beanFactory.isTypeMatch(ppName, Ordered.class)) {
-//				orderedPostProcessorNames.add(ppName);
-                orderedPostProcessor.add(beanFactory.getBean(ppName, BeanFactoryPostProcessor.class));
+				orderedPostProcessorNames.add(ppName);
             } else {
                 // 添加剩下的普通BeanFactoryPostProcessor的beanName到nonOrderedPostProcessorNames
-//				nonOrderedPostProcessorNames.add(ppName);
-                nonOrderedPostProcessorNames.add(beanFactory.getBean(ppName, BeanFactoryPostProcessor.class));
+				nonOrderedPostProcessorNames.add(ppName);
             }
         }
 
@@ -233,30 +229,27 @@ final class PostProcessorRegistrationDelegate {
 
         // Next, invoke the BeanFactoryPostProcessors that implement Ordered.
         // 创建存放实现了Ordered接口的BeanFactoryPostProcessor集合
-//		List<BeanFactoryPostProcessor> orderedPostProcessors = new ArrayList<>(orderedPostProcessorNames.size());
+		List<BeanFactoryPostProcessor> orderedPostProcessors = new ArrayList<>(orderedPostProcessorNames.size());
         // 遍历存放实现了Ordered接口的BeanFactoryPostProcessor名字的集合
-//		for (String postProcessorName : orderedPostProcessorNames) {
+		for (String postProcessorName : orderedPostProcessorNames) {
         // 将实现了Ordered接口的BeanFactoryPostProcessor添加到集合中
-//			orderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));
-//		}
+			orderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));
+		}
         // 对实现了Ordered接口的BeanFactoryPostProcessor进行排序操作
-//		sortPostProcessors(orderedPostProcessors, beanFactory);
-        sortPostProcessors(orderedPostProcessor, beanFactory);
+		sortPostProcessors(orderedPostProcessors, beanFactory);
         // 遍历实现了Ordered接口的BeanFactoryPostProcessor，执行postProcessBeanFactory方法
-//		invokeBeanFactoryPostProcessors(orderedPostProcessors, beanFactory);
-        invokeBeanFactoryPostProcessors(orderedPostProcessor, beanFactory);
+		invokeBeanFactoryPostProcessors(orderedPostProcessors, beanFactory);
 
         // Finally, invoke all other BeanFactoryPostProcessors.
         // 最后，创建存放普通的BeanFactoryPostProcessor的集合
-//		List<BeanFactoryPostProcessor> nonOrderedPostProcessors = new ArrayList<>(nonOrderedPostProcessorNames.size());
+		List<BeanFactoryPostProcessor> nonOrderedPostProcessors = new ArrayList<>(nonOrderedPostProcessorNames.size());
         // 遍历存放实现了普通BeanFactoryPostProcessor名字的集合
-//		for (String postProcessorName : nonOrderedPostProcessorNames) {
+		for (String postProcessorName : nonOrderedPostProcessorNames) {
         // 将普通的BeanFactoryPostProcessor添加到集合中
-//			nonOrderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));
-//		}
+			nonOrderedPostProcessors.add(beanFactory.getBean(postProcessorName, BeanFactoryPostProcessor.class));
+		}
         // 遍历普通的BeanFactoryPostProcessor，执行postProcessBeanFactory方法
-//		invokeBeanFactoryPostProcessors(nonOrderedPostProcessors, beanFactory);
-        invokeBeanFactoryPostProcessors(nonOrderedPostProcessorNames, beanFactory);
+		invokeBeanFactoryPostProcessors(nonOrderedPostProcessors, beanFactory);
 
         // Clear cached merged bean definitions since the post-processors might have
         // modified the original metadata, e.g. replacing placeholders in values...
