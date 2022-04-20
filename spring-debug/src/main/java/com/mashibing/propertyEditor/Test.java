@@ -1,9 +1,6 @@
 package com.mashibing.propertyEditor;
 
 import com.mashibing.MyClassPathXmlApplicationContext;
-import com.mashibing.Student;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.convert.ConversionService;
 
 public class Test {
 

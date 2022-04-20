@@ -58,10 +58,10 @@ public class LogUtil {
 //            result=100;
             System.out.println("log（around）---环绕通知stop "+signature.getName()+"方法执行结束");
         } catch (Throwable throwable) {
-            System.out.println("log（around）---环绕异常通知："+signature.getName()+"出现异常");
+            System.out.println("log（around） catch---环绕异常通知："+signature.getName()+"出现异常");
             throw throwable;
         }finally {
-            System.out.println("log（around）---环绕返回通知："+signature.getName()+"方法返回结果是："+result);
+            System.out.println("log （around） finally---环绕返回通知："+signature.getName()+"方法返回结果是："+result);
         }
         return result;
     }

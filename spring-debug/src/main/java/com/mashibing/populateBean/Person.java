@@ -1,5 +1,6 @@
 package com.mashibing.populateBean;
 
+
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import java.util.*;
@@ -145,4 +146,5 @@ public class Person {
                 ", properties=" + properties +
                 '}';
     }
+
 }

@@ -1,12 +1,5 @@
 package com.mashibing;
 
-import com.mashibing.cycle.A;
-import com.mashibing.cycle.B;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class Test {
 
     public static void main(String[] args) {
@@ -70,8 +63,8 @@ public class Test {
      * 第一个例子，测试spring简答的启动 过程
      */
     private  static  void testSimpleLoadingProcess(){
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-${USERNAME}.xml");
-        Student bean = context.getBean(Student.class);
-        context.close();
+//        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("spring-${USERNAME}.xml");
+//        Student bean = context.getBean(Student.class);
+//        context.close();
     }
 }

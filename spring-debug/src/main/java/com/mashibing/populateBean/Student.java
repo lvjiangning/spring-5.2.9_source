@@ -1,4 +1,4 @@
-package com.mashibing;
+package com.mashibing.populateBean;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.BeanFactoryAware;

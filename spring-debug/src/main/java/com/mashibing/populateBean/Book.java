@@ -1,6 +1,8 @@
 package com.mashibing.populateBean;
 
-public class Book {
+import org.springframework.beans.factory.InitializingBean;
+
+public class Book  implements InitializingBean {
     private String name;
     private String author;
     private double price;
@@ -45,5 +47,10 @@ public class Book {
                 ", author='" + author + '\'' +
                 ", price=" + price +
                 '}';
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("book afterPropertiesSet");
     }
 }

@@ -13,7 +13,7 @@ public class TestAop {
     public static void main(String[] args) throws Exception {
 //        saveGeneratedCGlibProxyFiles(System.getProperty("user.dir")+"/proxy");
         ApplicationContext ac = new ClassPathXmlApplicationContext("aop.xml");
-        Calculator bean =ac.getBean(Calculator.class);
+        MyCalculator bean =ac.getBean(MyCalculator.class);
         System.out.println(bean.toString());
         bean.add(1,0);
         bean.sub(1,1);
