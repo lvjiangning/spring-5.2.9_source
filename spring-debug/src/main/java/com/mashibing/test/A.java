@@ -1,6 +1,9 @@
 package com.mashibing.test;
 
-public class A {
+import org.springframework.stereotype.Component;
+
+@Component
+public class A extends B {
 
     private B b;
 
