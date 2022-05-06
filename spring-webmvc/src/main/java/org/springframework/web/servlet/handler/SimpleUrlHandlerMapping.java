@@ -26,7 +26,7 @@ import org.springframework.beans.BeansException;
 import org.springframework.util.CollectionUtils;
 
 /**
- * SimpleUrlHandlerMapping在内部定义了一个map变量，有两个作用，一个是方便进行配置，第二个是在注册钱可以做预处理工作，确保所有的url都是以/开头
+ * SimpleUrlHandlerMapping在内部定义了一个map变量，有两个作用，一个是方便进行配置，第二个是在注册前可以做预处理工作，确保所有的url都是以/开头
  * 然后将所有的url和handler的对应关系存储起来，最后注册到父类的map中
  *
  * 此对象在进行创建的时候会通过重写的父类的initApplicationContext方法调用registerHandler来完成handler的注册，

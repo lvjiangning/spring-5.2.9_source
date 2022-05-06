@@ -33,6 +33,7 @@ import org.springframework.web.servlet.mvc.HttpRequestHandlerAdapter;
 import org.springframework.web.servlet.resource.DefaultServletHttpRequestHandler;
 
 /**
+ * https://blog.csdn.net/abc997995674/article/details/80513203
  * {@link BeanDefinitionParser} that parses a {@code default-servlet-handler} element to
  * register a {@link DefaultServletHttpRequestHandler}.  Will also register a
  * {@link SimpleUrlHandlerMapping} for mapping resource requests, and a

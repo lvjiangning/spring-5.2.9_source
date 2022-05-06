@@ -1,0 +1,4 @@
+
+2、InternalResourceViewResolver 在spring mvc?容器启动时。通过xml文件进行加载，然后在创建时，调用ApplicationContextAwareProcessor 的postProcessBeforeInitialization方法
+因为是Aware类型，会调用setApplicationContext方法，然后调用initApplicationContext
+3、MvcNamespaceHandler 处理mvc的标签
