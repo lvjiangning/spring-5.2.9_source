@@ -12,11 +12,12 @@ import java.util.List;
 public class HelloController {
 
     @RequestMapping("/userlist")
-    public String hello(Model model){
+    public String hello(Model model,User user){
         System.out.println("hahha");
         List<User> userList = new ArrayList<>();
         User user1 = new User("张三", 12);
         User user2 = new User("李四", 21);
+        userList.add(user);
         userList.add(user1);
         userList.add(user2);
         model.addAttribute("users",userList);
